@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         binding.btLogin.setOnClickListener { haceLogin() }
 
 
-        setContentView(R.layout.activity_main)
     }
 
 
