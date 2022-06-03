@@ -11,7 +11,7 @@ interface LugarDao {
     suspend fun addLugar(lugar: Lugar)
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun updateLugar(lugar: lugar)
+    suspend fun updateLugar(lugar: Lugar)
 
     @Delete
     suspend fun deleteLugar(lugar: Lugar)
