@@ -17,7 +17,7 @@ class LugarViewModel(application: Application) : AndroidViewModel(application) {
 
     //Se procede a inicializar los atributos de arriba de esta clase LugarViewModel
     init {
-        val lugarDao = LugarDataBase.getDatabase(application).lugarDao()
+        val lugarDao = LugarDataBase.getDataBase(application).lugarDao()
         repository = LugarRepository(lugarDao)
         getAllData = repository.getAllData
     }
