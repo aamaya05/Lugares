@@ -1,3 +1,5 @@
+package com.lugares.adapter
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
