@@ -25,7 +25,7 @@
     <string name="bt_actualizar">Actualizar</string>
     <string name="lugarAdded">Lugar agregado</string>
     <string name="noData">Hace falta información</string>
-    <string name="delete">Elimina lugar</string>
+    <string name="delete">Eliminar lugar</string>
     <string name="seguroBorrar">¿Esta seguro que desea eliminarlo?</string>
     <string name="si">Si</string>
     <string name="no">No</string>

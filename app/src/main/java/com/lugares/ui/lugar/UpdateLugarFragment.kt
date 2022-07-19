@@ -50,9 +50,9 @@ class UpdateLugarFragment : Fragment() {
 
         binding.btEmail.setOnClickListener { escribirCorreo() }
         binding.btPhone.setOnClickListener { llamarLugar() }
-        binding.btWhatsapp.setOnClickListener { enviarWhatsapp() }
+        //binding.btWhatsapp.setOnClickListener { enviarWhatsapp() }
         binding.btWeb.setOnClickListener { verWeb() }
-        binding.btLocation.setOnClickListener { verMapa() }
+        //binding.btLocation.setOnClickListener { verMapa() }
 
         //Se indica que hay opciones de menu
         setHasOptionsMenu(true)
@@ -159,7 +159,7 @@ class UpdateLugarFragment : Fragment() {
         val web=binding.etWeb.text.toString()
         if (nombre.isNotEmpty()) {
             val lugar = Lugar(args.lugar.id,nombre,correo,telefono,web,0.0,0.0,0.0,"","")
-            lugarViewModel.updateLugar(lugar)
+            lugarViewModel.saveLugar(lugar)
             Toast.makeText(requireContext(),getString(R.string.lugarUpdate), Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateLugarFragment_to_nav_lugar)
         } else {
