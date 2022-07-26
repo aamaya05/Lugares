@@ -27,7 +27,13 @@ class ImagenUtiles (
         btRotaR.setOnClickListener { imagen.rotation=imagen.rotation+90f }
     }
 
-    lateinit var imagenFile: File
+    //Para saber si se tomó una foto
+    private var fotoTomada:Boolean=false
+    fun getFotoTomada():Boolean {
+        return fotoTomada
+    }
+
+    var imagenFile: File = createImageFile()
     private lateinit var currentPhotoPath: String
 
     @SuppressLint("QueryPermissionsNeeded")
@@ -59,6 +65,7 @@ class ImagenUtiles (
     fun actualizaFoto() {
         imagen.setImageBitmap(
             BitmapFactory.decodeFile(imagenFile.absolutePath))
+        fotoTomada=true
     }
 }
 

@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Lugares</string>
+    <string name="app_name" translatable="false">Lugares</string>
+<!--    <string name="default_web_client_id" translatable="false">75992522942-igi83ja4eildomt4os77uamj48u745uv.apps.googleusercontent.com</string>-->
     <string name="tv_correo">Correo</string>
     <string name="tv_clave">Contraseña</string>
     <string name="msg_fallo_registro">Error registrando usuario</string>

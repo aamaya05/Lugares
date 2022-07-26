@@ -3,6 +3,7 @@ package com.lugares.ui.lugar
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.lugares.R
 import com.lugares.databinding.FragmentUpdateLugarBinding
 import com.lugares.model.Lugar
@@ -22,11 +24,12 @@ class UpdateLugarFragment : Fragment() {
 
     //Definir argumentos de navegacion
     private val args by navArgs<UpdateLugarFragmentArgs>()
-
     private lateinit var lugarViewModel: LugarViewModel
-
     private var _binding: FragmentUpdateLugarBinding? = null
     private val binding get() = _binding!!
+
+    //Para escuchar audio
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,8 +53,30 @@ class UpdateLugarFragment : Fragment() {
 
         binding.btEmail.setOnClickListener { escribirCorreo() }
         binding.btPhone.setOnClickListener { llamarLugar() }
-        //binding.btWhatsapp.setOnClickListener { enviarWhatsapp() }
         binding.btWeb.setOnClickListener { verWeb() }
+
+        //Para inicializar y activar el boton de play.. si hay ruta de audio
+        if (args.lugar.rutaAudio?.isNotEmpty() == true) {
+            mediaPlayer = MediaPlayer()
+            mediaPlayer.setDataSource(args.lugar.rutaAudio)
+            mediaPlayer.prepare()
+            binding.btPlay.isEnabled=true
+            binding.btPlay.setOnClickListener { mediaPlayer.start() }
+        } else {
+            binding.btPlay.isEnabled=false
+        }
+
+        //Si hay ruta de imagen... la dibuja
+        if (args.lugar.rutaImagen?.isNotEmpty() == true) {
+            Glide.with(requireContext())
+                .load(args.lugar.rutaImagen)
+                .fitCenter()
+                .into(binding.imagen)
+        } else {
+            binding.btPlay.isEnabled=false
+        }
+
+        //binding.btWhatsapp.setOnClickListener { enviarWhatsapp() }
         //binding.btLocation.setOnClickListener { verMapa() }
 
         //Se indica que hay opciones de menu
