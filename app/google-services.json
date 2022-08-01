@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "75992522942-1l9r888q5rcel67dt7j3isdf7p7o5o7q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lugares",
+            "certificate_hash": "b793b58af362326f9a083502264fa1c059e7a18a"
+          }
+        },
+        {
           "client_id": "75992522942-igi83ja4eildomt4os77uamj48u745uv.apps.googleusercontent.com",
           "client_type": 3
         }
