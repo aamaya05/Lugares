@@ -51,16 +51,13 @@ class GalleryFragment : Fragment(), OnMapReadyCallback {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        lugarViewModel =
+            ViewModelProvider(this).get(LugarViewModel::class.java)
 
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+
         return root
     }
 
@@ -75,7 +72,7 @@ class GalleryFragment : Fragment(), OnMapReadyCallback {
            googleMap = it
            mapReady = true
            //Se instruye el mapa para que se vea las ubicaciones
-           lugarViewModal.getAllData.observe(viewLifecycleOwner){
+           lugarViewModel.getAllData.observe(viewLifecycleOwner){
                lugares ->
                updateMap(lugares)
                ubicaCamara()
